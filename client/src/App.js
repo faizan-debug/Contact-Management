@@ -1,13 +1,15 @@
 import React, {Fragment} from 'react';
 import './App.css';
 import Navbar from './components/layout/Navbar';
-import Home from './components/layout/pages/Home';
-import About from './components/pages/About'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom/client'
+import Home from './components/pages/Home';
+import About from './components/pages/About';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import ContactState from './context/contact/ContactState';
 
 
 const App = () => {
   return (
+    <ContactState>
     <Router>
     <Fragment className="App">
       <Navbar />
@@ -19,6 +21,7 @@ const App = () => {
       </div>
     </Fragment>
     </Router>
+    </ContactState>
   );
 }
 
