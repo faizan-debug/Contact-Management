@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const Navbar = ({title, icon}) => {
+const Navbar = ({title='Contact Management', icon='fas fa-id-card-alt'}) => {
   return (
     <div className='navbar bg-primary'>
         <h1>
@@ -24,9 +24,5 @@ Navbar.propTypes = {
     icon: PropTypes.string
 }
 
-Navbar.defaultProps = {
-    title: 'Contact Management',
-    icon: 'fas fa-id-card-alt'
-}
 
 export default Navbar

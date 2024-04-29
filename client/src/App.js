@@ -11,8 +11,8 @@ const App = () => {
   return (
     <ContactState>
     <Router>
-    <Fragment className="App">
-      <Navbar />
+    <Fragment >
+      <Navbar title="Contact Management" icon="fas fa-id-card-alt" />
       <div className="container">
         <Routes>
           <Route exact path = '/' Component={Home}/>
