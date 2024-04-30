@@ -10,7 +10,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alerts from './components/layout/Alerts';
 import setAuthToken from './utils/setAuthToken'
-import PrivateRoute from './components/routing/PrivateRoute';
+
 import './App.css';
 
 if(localStorage.token) {
@@ -28,10 +28,10 @@ const App = () => {
               <div className="container">
                 <Alerts />
                 <Routes>
-                  <PrivateRoute exact path='/' component={Home} />
-                  <Route exact path='/about' component={About} />
-                  <Route exact path='/register' component={Register} />
-                  <Route exact path='/login' component={Login} />
+                  <Route exact path='/' Component={Home} />
+                  <Route exact path='/about' Component={About} />
+                  <Route exact path='/register' Component={Register} />
+                  <Route exact path='/login' Component={Login} />
                 </Routes>
               </div>
             </Fragment>
