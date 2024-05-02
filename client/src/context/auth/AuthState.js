@@ -40,6 +40,8 @@ const AuthState = props => {
         }
     }
 
+    
+
     // Register User
     const register = async formData => {
         const config = {
@@ -67,6 +69,7 @@ const AuthState = props => {
             const res = await axios.post('/api/auth', formData, config);
             dispatch({ type: LOGIN_SUCCESS, payload: res.data });
             loadUser();
+           
         } catch (err) {
             dispatch({ type: LOGIN_FAIL, payload: err.response.data.msg })
         }

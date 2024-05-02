@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "babel-preset-react-app": "@babel/plugin-proposal-private-property-in-object"
   }
 }

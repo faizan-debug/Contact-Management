@@ -1,25 +1,31 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const Login = props => {
+const Login = (props) => {
     const alertContext = useContext(AlertContext);
     const authContext = useContext(AuthContext);
 
     const { setAlert } = alertContext;
     const { login, error, clearErrors, isAuthenticated } = authContext;
-
+    const navigate = useNavigate();
+  
+ 
     useEffect(() => {
         if(isAuthenticated) {
-            props.history.push('/');
+            navigate('/');
         }
 
         if(error === 'Incorrect password.') {
             setAlert(error, 'danger');
             clearErrors();
         }
+
+        
         // eslint-disable-next-line
-    }, [error, isAuthenticated, props.history])
+    }, [error, isAuthenticated, navigate])
 
     const [user, setUser] = useState({
         email: '',
@@ -30,12 +36,15 @@ const Login = props => {
 
     const onChange = e => setUser({...user, [e.target.name]: e.target.value});
 
+    
+
     const onSubmit = e => {
         e.preventDefault();
         if(email === '' || password === '') {
             setAlert('Please fill the login form', 'danger');
         } else {
             login({email, password});
+            
         }
     }
 
@@ -55,6 +64,12 @@ const Login = props => {
             </form>
         </div>
     )
+
+    
 };
+
+Login.propTypes = {
+    history: PropTypes.object
+  };
 
 export default Login;

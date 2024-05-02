@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
+import { useNavigate } from 'react-router-dom';
 
 const Register = props => {
     const alertContext = useContext(AlertContext);
@@ -8,10 +9,11 @@ const Register = props => {
 
     const { setAlert } = alertContext;
     const { register, error, clearErrors, isAuthenticated } = authContext;
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(isAuthenticated) {
-            props.history.push('/');
+            navigate('/');
         }
 
         if(error === 'A User with this email already exists.') {
@@ -19,7 +21,7 @@ const Register = props => {
             clearErrors();
         }
         // eslint-disable-next-line
-    }, [error, isAuthenticated, props.history])
+    }, [error, isAuthenticated, navigate])
 
     const [user, setUser] = useState({
         name: '',
