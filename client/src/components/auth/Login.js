@@ -23,6 +23,11 @@ const Login = (props) => {
             clearErrors();
         }
 
+        if(error === 'A user with this email does not exist') {
+            setAlert(error, 'danger');
+            clearErrors();
+        }
+
         
         // eslint-disable-next-line
     }, [error, isAuthenticated, navigate])

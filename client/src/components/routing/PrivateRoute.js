@@ -11,7 +11,7 @@ const PrivateRoute = ({ element: Component, ...rest }) => {
     return (
         <Route { ...rest } element={props => 
             !isAuthenticated  ? (
-            <Navigate to='/login' />
+            <Navigate to='login' />
         ) : (
             <Component {...props} />
         )} />
