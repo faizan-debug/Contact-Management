@@ -11,8 +11,7 @@ const Login = (props) => {
     const { setAlert } = alertContext;
     const { login, error, clearErrors, isAuthenticated } = authContext;
     const navigate = useNavigate();
-  
- 
+    
     useEffect(() => {
         if(isAuthenticated) {
             navigate('/');

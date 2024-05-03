@@ -19,8 +19,8 @@ const PrivateRoute = ({ element: Component, ...rest }) => {
 };
 
 PrivateRoute.propTypes = {
-  component: PropTypes.elementType, // Ensure component prop is a valid React component
-  rest: PropTypes.object, // Rest props can be of any type
+  element: PropTypes.elementType, // Ensure component prop is a valid React component
+  rest: PropTypes.object // Rest props can be of any type
 };
 
 export default PrivateRoute;
